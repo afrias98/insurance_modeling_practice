@@ -10,6 +10,7 @@ SELECT HASH(
     ,adjuster_name
     ,adjuster_region
     ,adjuster_experience_years
+    ,stg_loaded_at AS last_loaded
 FROM {{ ref('stg_claims_extract') }}
 QUALIFY ROW_NUMBER() OVER 
     (PARTITION BY adjuster_id

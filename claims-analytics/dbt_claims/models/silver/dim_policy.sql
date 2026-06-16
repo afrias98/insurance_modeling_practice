@@ -12,6 +12,7 @@ SELECT HASH(
     ,policy_state
     ,policy_effective_date
     ,policy_expiration_date
+    ,stg_loaded_at AS last_loaded
 FROM {{ ref('stg_claims_extract') }}
 QUALIFY ROW_NUMBER() OVER 
     (PARTITION BY policy_id

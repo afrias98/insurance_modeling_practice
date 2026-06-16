@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_claims_extract
+    description: "Bronze staging view for raw claims extract."
+    columns:
+      - name: claim_id
+        tests: [not_null]
+      - name: policy_id
+        tests: [not_null]
+      - name: customer_id
+        tests: [not_null]
+      - name: loss_date
+        tests: [not_null]
